@@ -2,15 +2,15 @@ const get_sensor_readings=require("./get-reading");
 const cached_readings={temperature:null,humidity:null};
 //dht11数字温湿度传感器的采样周期要大于等于2秒
 setInterval(()=>{
-	get_sensor_readings((err,temperature,huimidity)=>{
+	get_sensor_readings((err,temperature,humidity)=>{
 		if(err)
 		{
 			return console.error(err);
 		}
-		else//没有错误便将温湿度保存在缓存对象cached_readings中
+		else //没有错误便将温湿度保存在缓存对象cached_readings中	
 		{
 			cached_readings.temperature=temperature;
-			cached_readings.humidity=huimidity;
+			cached_readings.humidity=humidity;		
 		}
 	});
 },2000);
