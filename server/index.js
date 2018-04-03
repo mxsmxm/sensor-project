@@ -14,10 +14,11 @@ app.get("/humidity", function(req, res){
 });
 app.get("/on", function(req, res){
 	light_control.on();
-	console.log("light on");
+	console.log("light is on");
 });
 app.get("/off", function(req, res){
 	light_control.off();
+	res.send("light is off");
 	console.log("light off");
 });
 app.listen(3000, () => {
