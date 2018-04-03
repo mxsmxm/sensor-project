@@ -9,7 +9,7 @@ app.get("/temperature", function(req, res){
 app.get("/humidity", function(req, res){
 	let my_humidity = get_cached_readings.get_humidity();
 	console.log(my_humidity);
-	res.send(`${my_humidity}°C`);
+	res.send(`${my_humidity}%`);
 });
 app.listen(3000, () => {
 	console.log("Server listening on port 3000");
