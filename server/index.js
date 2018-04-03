@@ -14,12 +14,13 @@ app.get("/humidity", function(req, res){
 });
 app.get("/on", function(req, res){
 	light_control.on();
+	res.send("light is on")
 	console.log("light is on");
 });
 app.get("/off", function(req, res){
 	light_control.off();
 	res.send("light is off");
-	console.log("light off");
+	console.log("light is off");
 });
 app.listen(3000, () => {
 	console.log("Server listening on port 3000");
