@@ -5,7 +5,7 @@ app.get("/temperature", (req, res) => {
 	sensor.read(11, 17, function(err, temperature, humidity) {
 		if(!err) {
 			let dht_temperature = temperature.toFixed(1);
-			res.send("${dht_temperature}°C");
+			res.send(`${dht_temperature}°C`);
 		}
 	});
 });
@@ -13,7 +13,7 @@ app.get("/humidity", (req, res) => {
 	sensor.read(11, 17, function(err, temperature, humidity) {
 		if(!err) {
 			let dht_humidity = temperature.toFixed(1);
-			res.send("${dht_humidity}%");
+			res.send(`${dht_humidity}%`);
 		}
 	});
 });
