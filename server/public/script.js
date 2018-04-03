@@ -18,6 +18,7 @@ $(document).ready(function() {
 	$("#light_on").click(() => {
 		fetch('/on').then(response => response.text())
 			.then(data => {
+				$("#light_info").text(data);
 				console.log(data);
 			})
 			.catch(e => console.log("Oops, error", e))
@@ -25,6 +26,7 @@ $(document).ready(function() {
 	$("#light_off").click(() => {
 		fetch('/off').then(response => response.text())
 			.then(data => {
+				$("#light_info").text(data);
 				console.log(data);
 			})
 			.catch(e => console.log("Oops, error", e))
