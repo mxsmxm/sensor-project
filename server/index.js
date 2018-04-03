@@ -1,5 +1,5 @@
 const express = require("express");
-const get_sensor_readings=require("./get_sensor_readings");
+const get_sensor_readings=require("./get-reading");
 const app = express();
 app.get("/temperature", (req, res) => {
 	get_sensor_readings((err,temperature,humidity)=>{
