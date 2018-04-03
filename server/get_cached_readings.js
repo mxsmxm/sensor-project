@@ -8,8 +8,8 @@ setInterval(()=>{
 			return console.error(err);
 		}
 		 //没有错误便将温湿度保存在缓存对象cached_readings中			
-			cached_readings.temperature=temperature;
-			cached_readings.humidity=humidity;			
+			cached_readings.temperature=temperature.toFixed(1);
+			cached_readings.humidity=humidity.toFixed(1);			
 	});
 },2000);
 
