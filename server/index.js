@@ -1,21 +1,24 @@
 const express = require("express");
-const sensor = require("node-dht-sensor");
+const get_sensor_readings=require("./get_sensor_readings");
 const app = express();
 app.get("/temperature", (req, res) => {
-	sensor.read(11, 17, function(err, temperature, humidity) {
-		if(!err) {
-			let dht_temperature = temperature.toFixed(1);
-			console.log(dht_temperature);
-			res.send(`${dht_temperature}°C`);
+	get_sensor_readings((err,temperature,humidity)=>{
+		if(!err)
+		{
+			let my_temperature=temperature.toFixed(1);
+			console.log(my_temperature);
+			res.send(`${my_temperature}°C`);
 		}
 	});
+
 });
 app.get("/humidity", (req, res) => {
-	sensor.read(11, 17, function(err, temperature, humidity) {
-		if(!err) {
-			let dht_humidity = humidity.toFixed(1);
-			console.log(dht_humidity);
-			res.send(`${dht_humidity}%`);
+	get_sensor_readings((err,temperature,humidity)=>{
+		if(!err)
+		{
+			let my_humidity=humidity.toFixed(1);
+			console.log(my_humidity);
+			res.send(`${my_humidity}°C`);
 		}
 	});
 });
