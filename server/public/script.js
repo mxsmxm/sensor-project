@@ -59,7 +59,7 @@ $(document).ready(function() {
 			.then(data => {
 				//获取当前时间，更新图表中的labels数组
 				const now =new Date();
-				const timeNow=`${now.getHours()}:${now.Minutes():${now.getSeconds()}}`;
+				const timeNow=`${now.getHours()}:${now.Minutes()}:${now.getSeconds()}`;
 				update_chart_array(temperatureChart_options.data.labels,timeNow,10);
 				update_chart_array(temperatureChart_options.data.datasets[0].data,data.val,10);
 				temperaturechart.update();//动态更新图表
@@ -73,7 +73,7 @@ $(document).ready(function() {
 			.then(data => {
 				//获取当前时间，更新图表中的labels数组
 				const now =new Date();
-				const timeNow=`${now.getHours()}:${now.Minutes():${now.getSeconds()}}`;
+				const timeNow=`${now.getHours()}:${now.Minutes()}:${now.getSeconds()}`;
 				update_chart_array(humidityChart_options.data.labels,timeNow,10);
 				update_chart_array(humidityChart_options.data.datasets[0].data,data.val,10);
 				humiditychart.update();//动态更新图表
