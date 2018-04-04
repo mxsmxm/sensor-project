@@ -51,7 +51,7 @@ $(document).ready(function() {
 		options:{
 			legend:{display:false},
 			responsive:true,
-			maintainAspectRatio:false
+			maintainAspectRatio:true
 		}
 	});
 });
