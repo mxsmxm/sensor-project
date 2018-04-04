@@ -62,7 +62,7 @@ $(document).ready(function() {
 				const timeNow=`${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`;
 				update_chart_array(temperatureChart_options.data.labels,timeNow,10);
 				update_chart_array(temperatureChart_options.data.datasets[0].data,data.val,10);
-				temperaturechart.update();//动态更新图表
+				temperatureChart.update();//动态更新图表
 				console.log(data.val);
 				$("#temperature").text(data.val);
 			})
@@ -76,7 +76,7 @@ $(document).ready(function() {
 				const timeNow=`${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`;
 				update_chart_array(humidityChart_options.data.labels,timeNow,10);
 				update_chart_array(humidityChart_options.data.datasets[0].data,data.val,10);
-				humiditychart.update();//动态更新图表
+				humidityChart.update();//动态更新图表
 				console.log(data.val);
 				$("#humidity").text(data.val);
 			})
