@@ -12,7 +12,7 @@ app.get("/temperature", function(req, res){
 app.get("/humidity", function(req, res){
 	let my_humidity = get_cached_readings.get_humidity();
 	console.log(my_humidity);
-	res.json({val:my_humidity}});
+	res.json({val:my_humidity});
 });
 app.get("/on", function(req, res){
 	light_control.on();
