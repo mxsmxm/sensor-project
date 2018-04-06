@@ -69,7 +69,7 @@ $(document).ready(function() {
 							
 						}
 						
-					);
+					)
 					temperatureChart.update();//动态更新图表
 			})
 			.catch(e => console.log("Oops, error", e))
@@ -77,7 +77,7 @@ $(document).ready(function() {
 	fetch_temperature_history();
 	//获取湿度历史
 	const fetch_humidity_history=()=>{
-		fetch('/humidity/history').then(response => response.json())
+		fetch('/humidity/history').then(response =>  response.json())
 			.then(data => {
 				//得到的是一个10个最新数据的数组，每个数据元素都为一个对象
 					data.forEach(
@@ -90,7 +90,7 @@ $(document).ready(function() {
 							
 						}
 						
-					);
+					)
 					humidityChart.update();//动态更新图表
 			})
 			.catch(e => console.log("Oops, error", e))

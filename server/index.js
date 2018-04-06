@@ -31,7 +31,7 @@ app.get("/temperature/history",(req,res)=>{
 		{
 			console.error(err);
 		}
-		rdes.json(results.reverse());
+		res.json(results.reverse());
 		
 	});
 });
@@ -41,7 +41,7 @@ app.get("/humidity/history",(req,res)=>{
 		{
 			console.error(err);
 		}
-		rdes.json(results.reverse());
+		res.json(results.reverse());
 		
 	});
 });
