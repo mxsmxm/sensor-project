@@ -6,8 +6,8 @@ const db_operations=require("./db");
 	getAvg_sensorReading_betweenTime(type,start,end,callback),
 	close_db	
   */
-db.insertsensor_reading(temperature,8.8);
-db.getLatestSensor_readings(temperature,10,(err,results)=>{
+db_operations.insertsensor_reading(temperature,8.8);
+db_operations.getLatestSensor_readings(temperature,10,(err,results)=>{
 	if(err) console.error(err);
 	console.log(results);
 });
