@@ -54,6 +54,48 @@ $(document).ready(function() {
 	}
 	const humidityChart = new Chart(humidityCanvasCtx,humidityChart_options);
 	//fetch api
+	//获取温度历史
+	const fetch_temperature_history=()=>{
+		fetch('/temperature/history').then(response => response.json())
+			.then(data => {
+				//得到的是一个10个最新数据的数组，每个数据元素都为一个对象
+					data.forEach(
+						reading=>{
+							//将时间改成JS的Date对象，并添加到图表数组中
+							const time =new Date(reading.created_time);
+							const formattedTime=`${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}`;
+							update_chart_array(temperatureChart_options.data.labels,formattedTime,10);
+							update_chart_array(temperatureChart_options.data.datasets[0].data,reading.value,10);
+							
+						}
+						
+					);
+					temperatureChart.update();//动态更新图表
+			})
+			.catch(e => console.log("Oops, error", e))
+	}
+	fetch_temperature_history();
+	//获取湿度历史
+	const fetch_humidity_history=()=>{
+		fetch('/humidity/history').then(response => response.json())
+			.then(data => {
+				//得到的是一个10个最新数据的数组，每个数据元素都为一个对象
+					data.forEach(
+						reading=>{
+							//将时间改成JS的Date对象，并添加到图表数组中
+							const time =new Date(reading.created_time);
+							const formattedTime=`${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}`;
+							update_chart_array(humidityChart_options.data.labels,formattedTime,10);
+							update_chart_array(humidityChart_options.data.datasets[0].data,reading.value,10);
+							
+						}
+						
+					);
+					humidityChart.update();//动态更新图表
+			})
+			.catch(e => console.log("Oops, error", e))
+	}
+	fetch_humidity_history();
 	const fetch_temperature = () => {
 		fetch('/temperature').then(response => response.json())
 			.then(data => {

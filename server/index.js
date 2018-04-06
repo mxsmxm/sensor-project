@@ -24,6 +24,27 @@ app.get("/off", function(req, res){
 	res.send("light is off");
 	console.log("light is off");
 });
+//数据库相关
+app.get("/temperature/history",(req,res)=>{
+	db_operations.getLatestSensor_readings("temperature",10,(err,results)=>{
+		if(err)
+		{
+			console.error(err);
+		}
+		rdes.json(results.reverse());
+		
+	});
+});
+app.get("/humidity/history",(req,res)=>{
+	db_operations.getLatestSensor_readings("humidity",10,(err,results)=>{
+		if(err)
+		{
+			console.error(err);
+		}
+		rdes.json(results.reverse());
+		
+	});
+});
 app.listen(3000, () => {
 	console.log("Server listening on port 3000");
 });
