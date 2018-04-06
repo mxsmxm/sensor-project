@@ -1,5 +1,5 @@
 const get_sensor_readings=require("./get-reading");
-const db_operations=require(./db);
+const db_operations=require("./db");
 /*
     insertsensor_reading(type,value),
 	getLatestSensor_readings(type,num,callback),
