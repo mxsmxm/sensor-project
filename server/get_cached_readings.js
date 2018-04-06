@@ -23,7 +23,7 @@ setInterval(()=>{
 			cached_readings.humidity=humidity.toFixed(1);
 			//保存在数据库中
 			db_operations.insertsensor_reading("temperature",temperature.toFixed(1));
-			db_operations.insertsensor_reading("humidity",humidity.toFix(1));
+			db_operations.insertsensor_reading("humidity",humidity.toFixed(1));
 			db_operations.close_db();
 			}
 	});
